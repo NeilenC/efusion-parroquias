@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ThemeProvider, createTheme } from "@mui/material"
+import Inicio from './paginas/inicio';
+import Parroquia from './paginas/parroquia';
+import Sistema from './paginas/sistema-efusion';
+import Servicios from './paginas/servicios';
+import Suscripcion from './paginas/suscripcion';
+import Horarios from './paginas/horarios';
+import Navbar from './componentes/Navbar';
+
+const theme = createTheme({
+    typography: {
+        fontFamily: 'Playfair Display, serif'
+    }
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Navbar/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Inicio/>}/>
+          <Route path='/parroquia/:id' element={<Parroquia/>}/>
+          <Route path='/horarios/:id' element={<Horarios/>}/>
+          <Route path='/sistema-efusion' element={<Sistema/>}/>
+          <Route path='/servicios' element={<Servicios/>}/>
+          <Route path='/suscripcion' element={<Suscripcion/>}/>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
