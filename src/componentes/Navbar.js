@@ -31,9 +31,7 @@ const Navbar = () => {
             onClose={handleMenuClose}
             sx={{width:"180px", fontSize:"10px"}}
           >
-            <Link to='/servicios'>
-              <MenuItem onClick={handleMenuClose} sx={{justifyContent:"flex-end"}}>Servicios</MenuItem>
-            </Link>
+            <MenuItem onClick={handleMenuClose} sx={{justifyContent:"flex-end"}}>Servicios</MenuItem>
             <MenuItem onClick={handleMenuClose} sx={{justifyContent:"flex-end"}}>Suscripción</MenuItem>
             <MenuItem onClick={handleMenuClose} sx={{justifyContent:"flex-end"}}>¿Quiénes somos?</MenuItem>
           </Menu>
